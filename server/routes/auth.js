@@ -10,8 +10,8 @@ const {
   deleteById,
   changePassword,
   countDocuments,
-  countOrders,
-  getOrders,
+  //   countOrders,
+  //   getOrders,
 } = require("../controllers/auth");
 
 router.route("/register").post(register);
@@ -32,8 +32,8 @@ router.route("/changePass/:id").put(changePassword);
 
 router.route("/getCount").get(countDocuments);
 
-router.route("/getOrderCount").get(countOrders);
+// router.route("/getOrderCount").get(countOrders);
 
-router.route("/getOrders").get(getOrders);
+// router.route("/getOrders").get(getOrders);
 
 module.exports = router;

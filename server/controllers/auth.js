@@ -1,5 +1,5 @@
 const User = require("../models/auth");
-const Order = require("./../models/Order");
+// const Order = require("./../models/Order");
 const bcrypt = require("bcrypt");
 
 exports.register = async (req, res) => {
@@ -170,40 +170,40 @@ exports.countDocuments = async (req, res) => {
   });
 };
 
-exports.countOrders = async (req, res) => {
-  Order.countDocuments({}, function (err, doCount) {
-    if (err) {
-      res.send(err);
-      return;
-    }
+// exports.countOrders = async (req, res) => {
+//   Order.countDocuments({}, function (err, doCount) {
+//     if (err) {
+//       res.send(err);
+//       return;
+//     }
 
-    res.json({ count: doCount });
-  });
-};
+//     res.json({ count: doCount });
+//   });
+// };
 
-exports.getOrders = async (req, res) => {
-  await Order.find()
-    .then((orders) => res.json(orders))
-    .catch((err) => res.status(500).json({ err }));
-};
+// exports.getOrders = async (req, res) => {
+//   await Order.find()
+//     .then((orders) => res.json(orders))
+//     .catch((err) => res.status(500).json({ err }));
+// };
 
-const sendToken = (user, statusCode, res) => {
-  //JWT get
-  const token = user.getSignedToken();
-  const _id = user._id;
-  const username = user.username;
-  const phoneNumber = user.phoneNumber;
-  const email = user.email;
-  const type = user.type;
-  const dept = user.dept;
-  res.status(200).json({
-    success: true,
-    token,
-    _id,
-    username,
-    phoneNumber,
-    email,
-    type,
-    dept,
-  });
-};
+// const sendToken = (user, statusCode, res) => {
+//   //JWT get
+//   const token = user.getSignedToken();
+//   const _id = user._id;
+//   const username = user.username;
+//   const phoneNumber = user.phoneNumber;
+//   const email = user.email;
+//   const type = user.type;
+//   const dept = user.dept;
+//   res.status(200).json({
+//     success: true,
+//     token,
+//     _id,
+//     username,
+//     phoneNumber,
+//     email,
+//     type,
+//     dept,
+//   });
+// };
