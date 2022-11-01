@@ -187,23 +187,23 @@ exports.countDocuments = async (req, res) => {
 //     .catch((err) => res.status(500).json({ err }));
 // };
 
-// const sendToken = (user, statusCode, res) => {
-//   //JWT get
-//   const token = user.getSignedToken();
-//   const _id = user._id;
-//   const username = user.username;
-//   const phoneNumber = user.phoneNumber;
-//   const email = user.email;
-//   const type = user.type;
-//   const dept = user.dept;
-//   res.status(200).json({
-//     success: true,
-//     token,
-//     _id,
-//     username,
-//     phoneNumber,
-//     email,
-//     type,
-//     dept,
-//   });
-// };
+const sendToken = (user, statusCode, res) => {
+  //JWT get
+  const token = user.getSignedToken();
+  const _id = user._id;
+  const username = user.username;
+  const phoneNumber = user.phoneNumber;
+  const email = user.email;
+  const type = user.type;
+  const dept = user.dept;
+  res.status(200).json({
+    success: true,
+    token,
+    _id,
+    username,
+    phoneNumber,
+    email,
+    type,
+    dept,
+  });
+};
