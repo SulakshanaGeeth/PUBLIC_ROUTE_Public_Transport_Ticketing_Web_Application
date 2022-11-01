@@ -25,20 +25,6 @@ import AdminHome from "./AdminHome";
 //User Management Imports
 import CustomerHome from "./UserManagement/CustomerHome";
 import CustomerDetails from "./UserManagement/CustomerDetails";
-import OrderDetails from "./UserManagement/OrderDetails";
-
-//Product managemet Imports
-import Product from "./Product/Products";
-import ProductDetail from "./Product/ProductDetail";
-import AddProduct from "./Product/AddProduct";
-
-//Product delivery Imports
-import AllDpersons from "./DeliveryManagement/AllDperson";
-import AddDeperson from "./DeliveryManagement/AddDperson";
-import DpersonEdit from "./DeliveryManagement/Dedit";
-
-//Orders Management
-import OrdersAdmin from "./Order Management/OrdersAdmin";
 
 const drawerWidth = 240;
 
@@ -54,7 +40,12 @@ export default function AdminDashboard() {
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div" href="/admin/adminHome" >
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            href="/admin/adminHome"
+          >
             Wonder Mart
           </Typography>
 
@@ -134,7 +125,7 @@ export default function AdminDashboard() {
                 onClick={() => {
                   // setpageNo("3");
                   history("/admin/Orders");
-                }}              
+                }}
               >
                 <ListItemIcon>
                   <ReceiptLongIcon />
@@ -190,9 +181,7 @@ export default function AdminDashboard() {
       {window.location.pathname === `/admin/orderDetails` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <OrderDetails />
-          </div>
+          <div>{/* <OrderDetails /> */}</div>
         </Box>
       )}
       {/*  */}
@@ -203,25 +192,19 @@ export default function AdminDashboard() {
       {window.location.pathname === `/admin/products` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <Product />
-          </div>
+          <div>{/* <Product /> */}</div>
         </Box>
       )}
       {window.location.pathname === `/admin/addProduct/` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <AddProduct />
-          </div>
+          <div>{/* <AddProduct /> */}</div>
         </Box>
       )}
       {window.location.pathname === `/admin/product/${useParams().id}` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <ProductDetail />
-          </div>
+          <div>{/* <ProductDetail /> */}</div>
         </Box>
       )}
       {/*  */}
@@ -232,25 +215,19 @@ export default function AdminDashboard() {
       {window.location.pathname === `/admin/allPersons` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <AllDpersons />
-          </div>
+          <div>{/* <AllDpersons /> */}</div>
         </Box>
       )}
       {window.location.pathname === `/admin/addPerson/` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <AddDeperson />
-          </div>
+          <div>{/* <AddDeperson /> */}</div>
         </Box>
       )}
       {window.location.pathname === `/admin/edit/${useParams().id}` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <DpersonEdit />
-          </div>
+          <div>{/* <DpersonEdit /> */}</div>
         </Box>
       )}
 
@@ -262,9 +239,7 @@ export default function AdminDashboard() {
       {window.location.pathname === `/admin/Orders` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>
-            <OrdersAdmin />
-          </div>
+          <div>{/* <OrdersAdmin /> */}</div>
         </Box>
       )}
     </Box>

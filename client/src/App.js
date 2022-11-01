@@ -53,7 +53,7 @@ function App() {
           }
         />
 
-        <Route path="/about" element={<About />} exact />
+        {/* <Route path="/about" element={<About />} exact /> */}
 
         <Route
           path="/admin/adminHome"
