@@ -82,6 +82,27 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/*  */}
+        {/*  */}
+        {/* Bus Management Routes */}
+        {/*  */}
+        {/*  */}
+        <Route
+          path="/admin/BusManagement"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/addBus"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );

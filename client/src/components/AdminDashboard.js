@@ -12,7 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import AllInboxIcon from "@material-ui/icons/AllInbox";
+import DateRangeIcon from "@mui/icons-material/DateRange";
 import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { useNavigate, useParams } from "react-router-dom";
@@ -25,6 +25,10 @@ import AdminHome from "./AdminHome";
 //User Management Imports
 import CustomerHome from "./UserManagement/CustomerHome";
 import CustomerDetails from "./UserManagement/CustomerDetails";
+
+//Bus Management Imports
+import Buses from "./BusListManagement/Buses";
+import AddBus from "./BusListManagement/AddBus";
 
 const drawerWidth = 240;
 
@@ -84,7 +88,7 @@ export default function AdminDashboard() {
                 <ListItemIcon>
                   <SupervisorAccountIcon />
                 </ListItemIcon>
-                <ListItemText primary="Home" />
+                <ListItemText primary="Customer Management" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -94,13 +98,13 @@ export default function AdminDashboard() {
               <ListItemButton
                 onClick={() => {
                   // setpageNo("2");
-                  history(`/admin/Schedule`);
+                  history(`/admin/BusManagement`);
                 }}
               >
                 <ListItemIcon>
-                  <AllInboxIcon />
+                  <AirportShuttleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Schedule" />
+                <ListItemText primary="Bus List Management" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -115,9 +119,9 @@ export default function AdminDashboard() {
                 }}
               >
                 <ListItemIcon>
-                  <AirportShuttleIcon />
+                  <DateRangeIcon />
                 </ListItemIcon>
-                <ListItemText primary="Locations" />
+                <ListItemText primary="Timetable Management " />
               </ListItemButton>
             </ListItem>
           </List>
@@ -133,7 +137,7 @@ export default function AdminDashboard() {
                 <ListItemIcon>
                   <ReceiptLongIcon />
                 </ListItemIcon>
-                <ListItemText primary="Orders" />
+                <ListItemText primary="Routes Management" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -181,68 +185,26 @@ export default function AdminDashboard() {
           </div>
         </Box>
       )}
-      {window.location.pathname === `/admin/orderDetails` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <OrderDetails /> */}</div>
-        </Box>
-      )}
-      {/*  */}
-      {/*  */}
-      {/* Product */}
-      {/*  */}
-      {/*  */}
-      {window.location.pathname === `/admin/products` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <Product /> */}</div>
-        </Box>
-      )}
-      {window.location.pathname === `/admin/addProduct/` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <AddProduct /> */}</div>
-        </Box>
-      )}
-      {window.location.pathname === `/admin/product/${useParams().id}` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <ProductDetail /> */}</div>
-        </Box>
-      )}
-      {/*  */}
-      {/*  */}
-      {/* Delivery */}
-      {/*  */}
-      {/*  */}
-      {window.location.pathname === `/admin/allPersons` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <AllDpersons /> */}</div>
-        </Box>
-      )}
-      {window.location.pathname === `/admin/addPerson/` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <AddDeperson /> */}</div>
-        </Box>
-      )}
-      {window.location.pathname === `/admin/edit/${useParams().id}` && (
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
-          <div>{/* <DpersonEdit /> */}</div>
-        </Box>
-      )}
 
       {/*  */}
       {/*  */}
-      {/* Orders */}
+      {/* Bus Management */}
       {/*  */}
       {/*  */}
-      {window.location.pathname === `/admin/Orders` && (
+      {window.location.pathname === `/admin/BusManagement` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <div>{/* <OrdersAdmin /> */}</div>
+          <div>
+            <Buses />
+          </div>
+        </Box>
+      )}
+      {window.location.pathname === `/admin/addBus` && (
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <div>
+            <AddBus />
+          </div>
         </Box>
       )}
     </Box>
