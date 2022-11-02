@@ -6,8 +6,8 @@ const Route = new schema({
     StartPoint : {type:String, required: true},
     Endpoint : {type:String, required: true},
     OtherPoints : [{
-        pointName : {type:String, required: true},
-        price : {type:String, required: true}
+        pointName : {type:String, required: false},
+        price : {type:String, required: false}
 }]
 });
 
