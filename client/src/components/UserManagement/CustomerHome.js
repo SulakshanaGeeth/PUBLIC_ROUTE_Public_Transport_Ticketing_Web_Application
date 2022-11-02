@@ -45,7 +45,7 @@ export default function CustomerHome() {
       <Typography component="h1" variant="h4" align="center">
         Customer Management
       </Typography>
-      <Box sx={{ flexGrow: 1 }} style={{ marginTop: "5%" }}>
+      <Box sx={{ flexGrow: 1 }} style={{ marginTop: "5%", marginLeft: "33%" }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Item style={{ backgroundColor: "#ccfff5" }}>
@@ -69,37 +69,6 @@ export default function CustomerHome() {
               <Button
                 variant="contained"
                 href="/admin/customerDetails"
-                style={{
-                  display: "inline-block",
-                  marginTop: "20px",
-                }}
-              >
-                Details
-              </Button>
-            </Item>
-          </Grid>
-          <Grid item xs={6}>
-            <Item style={{ backgroundColor: "#ccfff5" }}>
-              <Typography variant="h5" gutterBottom>
-                Total Orders
-              </Typography>
-
-              <div style={{ fontSize: "500%" }}>
-                <Chip
-                  color="info"
-                  icon={
-                    <AutoStoriesIcon
-                      style={{ fontSize: "120%", marginRight: "20px" }}
-                    />
-                  }
-                  label={countOrder}
-                  style={{ width: "50%", height: "20%", fontSize: "80%" }}
-                />
-              </div>
-
-              <Button
-                variant="contained"
-                href="/admin/orderDetails"
                 style={{
                   display: "inline-block",
                   marginTop: "20px",
