@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import loginImg from "./assets/Login.jpg";
+import loginImg from "./assets/LoginIMG.png";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -204,15 +204,15 @@ export default function Login() {
             </Item>
           </Grid>
           <Grid item xs={7}>
-            <Item>
-              <img
-                src={loginImg}
-                style={{
-                  height: "400px",
-                }}
-                alt="Logo"
-              />
-            </Item>
+            <img
+              src={loginImg}
+              style={{
+                height: "420px",
+                marginTop: "0px",
+                borderRadius: "5px",
+              }}
+              alt="Logo"
+            />
           </Grid>
         </Grid>
       </Box>
