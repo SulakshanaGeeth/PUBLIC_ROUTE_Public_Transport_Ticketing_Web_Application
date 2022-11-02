@@ -14,14 +14,14 @@ router.post('/create', async (req, res) => {
     .catch((err) => res.json(err.message)); 
 });
 
-router.get('/:UserID', (req, res) => {
-    Payment.findOne({UserID:req.params.UserID})
+router.get('/all', (req, res) => {
+    Payment.find()
     .then((result) => res.json(result))
     .catch((err) => res.json(err.message));
 });
 
-router.get('/all', (req, res) => {
-    Payment.find()
+router.get('/:UserID', (req, res) => {
+    Payment.findOne({UserID:req.params.UserID})
     .then((result) => res.json(result))
     .catch((err) => res.json(err.message));
 });

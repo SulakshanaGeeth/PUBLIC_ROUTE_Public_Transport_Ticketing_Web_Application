@@ -34,3 +34,9 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/auth", require("./routes/auth"));
+
+app.use("/account", require("./routes/account"));
+app.use("/payment", require("./routes/payment"));
+app.use("/bus", require("./routes/bus"));
+app.use("/timetable", require("./routes/timetable"));
+app.use("/route", require("./routes/route"));
