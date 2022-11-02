@@ -23,7 +23,7 @@ export default function Header() {
       <Paper
         square
         sx={{
-          backgroundColor: "#4caf50",
+          backgroundColor: "#ffa366",
           height: "110px",
           paddingBottom: "40px",
         }}
@@ -31,7 +31,12 @@ export default function Header() {
         <img
           src={Logo}
           alt="Logo"
-          style={{ width: "8%", position: "absolute" }}
+          style={{
+            width: "30%",
+            position: "absolute",
+            marginLeft: "-100px",
+            marginTop: "-60px",
+          }}
         />
         <IconButton square sx={{ marginLeft: "45%" }} href="/profile/">
           <AccountCircleIcon
@@ -53,41 +58,24 @@ export default function Header() {
           </Typography>
         </IconButton>
 
-        <Typography
-          sx={{
-            marginLeft: "130px",
-            marginTop: "-20px",
-            fontSize: "25px",
-            fontWeight: "bold",
-            fontFamily: "inherit",
-          }}
-        >
-          {" "}
-          WONDER MART{" "}
-        </Typography>
-
         <Tabs
           aria-label="nav tabs example"
-          sx={{ marginTop: "-15px", marginLeft: "350px" }}
+          sx={{ marginTop: "-15px", marginLeft: "400px" }}
         >
           <Tab
-            label="Home"
-            href="/home"
+            label="Schedules"
+            href="/Schedules"
             sx={{ color: "white", marginLeft: "25px" }}
           />
           <Tab
-            label="Products"
-            href="/products"
+            label="Bus Details"
+            href="/Bus Details"
             sx={{ color: "white", marginLeft: "25px" }}
           />
+
           <Tab
-            label="Service"
-            href="/spam"
-            sx={{ color: "white", marginLeft: "25px" }}
-          />
-          <Tab
-            label="About"
-            href="/spam"
+            label="Routes"
+            href="/Routes"
             sx={{ color: "white", marginLeft: "25px" }}
           />
 

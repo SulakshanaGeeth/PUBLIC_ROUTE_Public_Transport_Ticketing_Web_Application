@@ -5,7 +5,6 @@ import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -19,6 +18,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { useNavigate, useParams } from "react-router-dom";
 import { Logout } from "./UserManagement/utils/LogoutHandler";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import Logo from "./HeaderFooter/Logo.png";
 
 import AdminHome from "./AdminHome";
 
@@ -38,16 +38,19 @@ export default function AdminDashboard() {
       <AppBar
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        style={{ backgroundColor: "#ffa366" }}
       >
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            href="/admin/adminHome"
-          >
-            Wonder Mart
-          </Typography>
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{
+              width: "240px",
+              position: "absolute",
+              marginLeft: "-70px",
+              marginTop: "-20px",
+            }}
+          />
 
           <div style={{ marginLeft: "auto", marginRight: "0" }}>
             <h5>Admin {username}</h5>
@@ -81,7 +84,7 @@ export default function AdminDashboard() {
                 <ListItemIcon>
                   <SupervisorAccountIcon />
                 </ListItemIcon>
-                <ListItemText primary="Customers" />
+                <ListItemText primary="Home" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -91,13 +94,13 @@ export default function AdminDashboard() {
               <ListItemButton
                 onClick={() => {
                   // setpageNo("2");
-                  history(`/admin/products`);
+                  history(`/admin/Schedule`);
                 }}
               >
                 <ListItemIcon>
                   <AllInboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Products" />
+                <ListItemText primary="Schedule" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -114,7 +117,7 @@ export default function AdminDashboard() {
                 <ListItemIcon>
                   <AirportShuttleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Delivery" />
+                <ListItemText primary="Locations" />
               </ListItemButton>
             </ListItem>
           </List>
