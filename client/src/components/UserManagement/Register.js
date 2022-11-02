@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import image from "./assets/Signup.jpg";
+import image from "./assets/SignUp.png";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -99,6 +99,7 @@ export default function Register() {
                 src={image}
                 style={{
                   height: "595px",
+                  width: "700px",
                   // padding: "0px",
                   // marginLeft: "0px",
                   // paddingTop: "80px",

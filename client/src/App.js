@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import PrivateRoute from "./routes/PrivateRoute";
+import Home from "./components/Home";
 
 //User Management Imports
 import Register from "./components/UserManagement/Register";
@@ -23,6 +24,8 @@ function App() {
         {/*  */}
         {/*  */}
         <Route path="/" element={<Login />} />
+
+        <Route path="/home" element={<Home />} />
 
         <Route path="/register" element={<Register />} />
 

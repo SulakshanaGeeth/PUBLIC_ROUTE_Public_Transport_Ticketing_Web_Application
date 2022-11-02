@@ -57,7 +57,7 @@ function UserProfile() {
         <Grid
           container
           spacing={0.3}
-          style={{ padding: "45px", marginBottom: "0px" }}
+          style={{ padding: "45px", marginBottom: "0px", height: "575px" }}
         >
           <Grid item xs={5}>
             <Item
@@ -65,7 +65,7 @@ function UserProfile() {
                 display: "block",
                 boxSizing: "border-box",
                 height: "340px",
-                backgroundColor: "#7ed321",
+                backgroundColor: "#ff751a",
                 clipPath: "ellipse(93% 100% at 77.09% 0%)",
                 paddingBottom: "30px",
               }}
