@@ -28,16 +28,18 @@ export default function Header() {
           paddingBottom: "40px",
         }}
       >
-        <img
-          src={Logo}
-          alt="Logo"
-          style={{
-            width: "30%",
-            position: "absolute",
-            marginLeft: "-100px",
-            marginTop: "-60px",
-          }}
-        />
+        <a href="/home">
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{
+              width: "30%",
+              position: "absolute",
+              marginLeft: "-100px",
+              marginTop: "-60px",
+            }}
+          />
+        </a>
         <IconButton square sx={{ marginLeft: "45%" }} href="/profile/">
           <AccountCircleIcon
             sx={{ height: "40px", width: "40px", color: "black" }}
@@ -60,8 +62,13 @@ export default function Header() {
 
         <Tabs
           aria-label="nav tabs example"
-          sx={{ marginTop: "-15px", marginLeft: "400px" }}
+          sx={{ marginTop: "-15px", marginLeft: "380px" }}
         >
+          <Tab
+            label="Home"
+            href="/home"
+            sx={{ color: "white", marginLeft: "25px" }}
+          />
           <Tab
             label="Schedules"
             href="/Schedules"
@@ -75,31 +82,19 @@ export default function Header() {
 
           <Tab
             label="Routes"
-            href="/Routes"
+            href="/RouteDetails"
             sx={{ color: "white", marginLeft: "25px" }}
           />
-
-          <IconButton square sx={{ marginLeft: "100px" }} href="/Cart">
-            <ShoppingCartIcon
-              sx={{ height: "30px", width: "30px", color: "black" }}
-            />
-            <Typography
-              sx={{ marginLeft: "10px", fontSize: "20px", color: "white" }}
-            >
-              Cart
-            </Typography>
-          </IconButton>
-
-          <IconButton square sx={{ marginLeft: "100px" }} href="/Orders">
-            <ListAltIcon
-              sx={{ height: "30px", width: "30px", color: "black" }}
-            />
-            <Typography
-              sx={{ marginLeft: "10px", fontSize: "20px", color: "white" }}
-            >
-              Orders
-            </Typography>
-          </IconButton>
+          <Tab
+            label="Payment"
+            href="/payment"
+            sx={{ color: "white", marginLeft: "25px" }}
+          />
+          <Tab
+            label="AddPayment"
+            href="/AddPayment"
+            sx={{ color: "white", marginLeft: "25px" }}
+          />
         </Tabs>
       </Paper>
     </div>
