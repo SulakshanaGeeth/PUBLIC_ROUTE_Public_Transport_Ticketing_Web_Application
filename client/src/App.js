@@ -103,6 +103,28 @@ function App() {
             </PrivateRoute>
           }
         />
+
+        {/*  */}
+        {/*  */}
+        {/* TimeTable Routes */}
+        {/*  */}
+        {/*  */}
+        <Route
+          path="/admin/createTable"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/viewTable"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
