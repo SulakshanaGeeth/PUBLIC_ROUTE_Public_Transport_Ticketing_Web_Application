@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import {AlertUpdateTable, AlertDeleteTable, AlertAddedTable} from "./Alert/Alert";
+
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
@@ -79,6 +81,7 @@ export default class ViewTable extends React.Component {
     async OnEdit() {
         console.log(this.state.Table._id);
         // console.log(this.state.cid);
+        this.EditClose();
 
         const Cell = {
             Cid:this.state.cid,
@@ -89,7 +92,14 @@ export default class ViewTable extends React.Component {
         console.log(Cell);
 
         await axios.put('http://localhost:8070/timetable/cell/' + this.state.Table._id, Cell)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+            console.log(res.data);
+            if(res.status == 200) {
+                AlertUpdateTable("success", "Updated", res.data)
+            }else {
+                AlertUpdateTable("error", "Error", res.data)
+            }
+        })
         .catch((err) => console.log(err.message))
 
         this.OnSearch();
@@ -109,7 +119,14 @@ export default class ViewTable extends React.Component {
         console.log(round);
 
         await axios.delete('http://localhost:8070/timetable/' + this.state.Table.RouteID +"/"+ day +"/"+ round)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+            console.log(res.data);
+            if(res.status == 200) {
+                AlertDeleteTable("success", "Deleted", res.data)
+            }else {
+                AlertDeleteTable("error", "Error", res.data)
+            }
+        })
         .catch((err) => console.log(err.message))
 
         this.OnSearch();
@@ -135,7 +152,14 @@ export default class ViewTable extends React.Component {
         console.log(Cell);
 
         await axios.put('http://localhost:8070/timetable/edit/' + this.state.Table.RouteID, Cell)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+            console.log(res.data);
+            if(res.status == 200) {
+                AlertAddedTable("success", "Added", res.data)
+            }else {
+                AlertAddedTable("error", "Error", res.data)
+            }
+        })
         .catch((err) => console.log(err.message))
 
         this.OnSearch();
