@@ -30,6 +30,10 @@ import CustomerDetails from "./UserManagement/CustomerDetails";
 import Buses from "./BusListManagement/Buses";
 import AddBus from "./BusListManagement/AddBus";
 
+//TimeTabel Management
+import CreateTable from "./TimeTable/CreateTable";
+import ViewTable from "./TimeTable/ViewTable";
+
 const drawerWidth = 240;
 
 export default function AdminDashboard() {
@@ -115,7 +119,7 @@ export default function AdminDashboard() {
               <ListItemButton
                 onClick={() => {
                   // setpageNo("3");
-                  history("/admin/allPersons");
+                  history("/admin/viewTable");
                 }}
               >
                 <ListItemIcon>
@@ -204,6 +208,28 @@ export default function AdminDashboard() {
           <Toolbar />
           <div>
             <AddBus />
+          </div>
+        </Box>
+      )}
+
+      {/*  */}
+      {/*  */}
+      {/* Time Table Management */}
+      {/*  */}
+      {/*  */}
+      {window.location.pathname === `/admin/viewTable` && (
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <div>
+            <ViewTable />
+          </div>
+        </Box>
+      )}
+      {window.location.pathname === `/admin/createTable` && (
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <div>
+            <CreateTable />
           </div>
         </Box>
       )}
