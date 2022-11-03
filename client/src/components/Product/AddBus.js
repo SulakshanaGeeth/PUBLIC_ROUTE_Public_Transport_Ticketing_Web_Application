@@ -16,10 +16,12 @@ const AddBus = () => {
   const history = useNavigate();
 
   const [inputs, setInputs] = useState({
-    VehicleNo: "",
-    DriverID: "",
-    ConductorID: "",
-    Availability: "",
+    busNo: "",
+    routeNo: "",
+    from: "",
+    to: "",
+    driverId: "",
+    driverName: "",
   });
 
   const [checked, setChecked] = useState(false);
@@ -34,11 +36,14 @@ const AddBus = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:8070/bus/create", {
-        VehicleNo: String(inputs.VehicleNo),
-        DriverID: String(inputs.DriverID),
-        ConductorID: String(inputs.ConductorID),
-        Availability: Boolean(inputs.Availability),
+      .post("http://localhost:8070/buses/", {
+        busNo: String(inputs.busNo),
+        routeNo: String(inputs.routeNo),
+        from: String(inputs.from),
+        to: String(inputs.to),
+        driverId: String(inputs.driverId),
+        driverName: String(inputs.driverName),
+        available: Boolean(checked),
       })
       .then((res) => res.data);
   };
@@ -46,7 +51,7 @@ const AddBus = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs, checked);
-    sendRequest().then(() => history("/admin/BusManagement"));
+    sendRequest().then(() => history("/admin/buses"));
   };
   return (
     <Fragment>
@@ -62,57 +67,75 @@ const AddBus = () => {
           marginRight={"auto"}
           marginTop={5}
         >
-          <FormLabel>VehicleNo</FormLabel>
+          <FormLabel>Bus No</FormLabel>
           <TextField
-            placeholder={"Eg:VehicleNo"}
-            value={inputs.VehicleNo}
+            placeholder={"Eg: BAV-5429"}
+            value={inputs.busNo}
             onChange={handleChange}
             margin="normal"
             fullWidth
             variant="outlined"
-            name="VehicleNo"
+            name="busNo"
           />
-          <FormLabel>DriverID</FormLabel>
+          <FormLabel>Route No</FormLabel>
           <TextField
-            placeholder={"Eg:DriverIDr"}
-            value={inputs.DriverID}
+            placeholder={"Eg: A508"}
+            value={inputs.routeNo}
             onChange={handleChange}
             margin="normal"
             fullWidth
             variant="outlined"
-            name="DriverID"
+            name="routeNo"
           />
-          <FormLabel>ConductorID</FormLabel>
+          <FormLabel>From</FormLabel>
           <TextField
-            placeholder={"ConductorID"}
-            value={inputs.ConductorID}
+            placeholder={"Eg: Polgahawela"}
+            value={inputs.from}
             onChange={handleChange}
             margin="normal"
             fullWidth
             variant="outlined"
-            name="ConductorID"
+            name="from"
           />
-          <FormLabel>Availability</FormLabel>
+          <FormLabel>To</FormLabel>
           <TextField
-            placeholder={"Availability"}
-            value={inputs.Availability}
+            placeholder={"Eg: Colombo 03"}
+            value={inputs.to}
             onChange={handleChange}
-            type={"Boolean"}
             margin="normal"
             fullWidth
             variant="outlined"
-            name="Availability"
+            name="to"
           />
-
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={checked}
-                onChange={() => setChecked(!checked)}
-              />
-            }
-            label="Available"
+          <FormLabel>Driver Id</FormLabel>
+          <TextField
+            placeholder={"Eg: 97195678V "}
+            value={inputs.driverId}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="driverId"
           />
+          <FormLabel>Driver Name</FormLabel>
+          <TextField
+              placeholder={"Eg: A.C.S Nimal Perera "}
+              value={inputs.driverName}
+              onChange={handleChange}
+              margin="normal"
+              fullWidth
+              variant="outlined"
+              name="driverName"
+          />
+          {/*<FormControlLabel*/}
+          {/*  control={*/}
+          {/*    <Checkbox*/}
+          {/*      checked={checked}*/}
+          {/*      onChange={() => setChecked(!checked)}*/}
+          {/*    />*/}
+          {/*  }*/}
+          {/*  label="Available"*/}
+          {/*/>*/}
           <Button variant={"contained"} type={"submit"}>
             Add Bus
           </Button>

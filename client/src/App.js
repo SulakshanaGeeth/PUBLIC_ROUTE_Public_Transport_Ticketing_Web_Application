@@ -87,16 +87,31 @@ function App() {
         {/* Bus Management Routes */}
         {/*  */}
         {/*  */}
+        {/*  */}
+
         <Route
-          path="/admin/BusManagement"
+          path="/admin/addBus/"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+          exact
+        />
+
+        <Route
+          path="/admin/buses"
           element={
             <PrivateRoute>
               <AdminDashboard />
             </PrivateRoute>
           }
         />
+
+        {/* <Route path="/about" element={<About />} exact /> */}
+
         <Route
-          path="/admin/addBus"
+          path="/admin/bus/:id"
           element={
             <PrivateRoute>
               <AdminDashboard />
