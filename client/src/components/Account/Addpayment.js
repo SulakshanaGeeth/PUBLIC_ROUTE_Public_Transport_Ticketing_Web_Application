@@ -50,15 +50,25 @@ export default function Register() {
       },
     };
 
-    try {
-      await axios.post(
-        `${BACKEND_BASE_URL}/payment/create`,
-        { UserID, Time, Date, Type },
-        config
-      );
-    } catch (error) {
-      setError(error.response.data.error);
+    const Data = {
+      UserID,
+      Time, Date, Type
     }
+    console.log(Data);
+
+    await axios.post('http://localhost:8070/payment/create', Data)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err.message))
+
+    // try {
+    //   await axios.post(
+    //     `${BACKEND_BASE_URL}/payment/create`,
+    //     { UserID, Time, Date, Type },
+    //     config
+    //   );
+    // } catch (error) {
+    //   setError(error.response.data.error);
+    // }
   };
   return (
     <React.Fragment>
