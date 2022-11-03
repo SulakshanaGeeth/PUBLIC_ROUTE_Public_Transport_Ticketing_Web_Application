@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import {AlertCreateTable} from "./Alert/Alert";
+
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -36,7 +38,13 @@ export default class CreateTable extends React.Component {
         console.log(Table);
 
         await axios.post('http://localhost:8070/timetable/create', Table)
-        .then((res) => console.log(res.data))
+        .then((res) => {console.log(res.data);
+            if(res.status == 200) {
+                AlertCreateTable("success", "Created", res.data)
+            }else {
+                AlertCreateTable("error", "Error", res.data)
+            }
+        })
         .catch((err) => console.log(err.message))
     }
 
