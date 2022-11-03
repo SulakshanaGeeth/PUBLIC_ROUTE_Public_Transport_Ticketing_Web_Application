@@ -1,16 +1,17 @@
 import React from "react";
 import { Button } from "@mui/material";
-import "./Bus.css";
+import "./Product.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Bus = (props) => {
   const history = useNavigate();
-  const { _id, VehicleNo, DriverID, ConductorID, Availability } = props.bus;
+  const { _id, busNo, routeNo, from, to, driverId, driverName, available } =
+    props.bus;
 
   const deleteHandler = async () => {
     await axios
-      .delete(`http://localhost:8070/bus/${_id}`)
+      .delete(`http://localhost:8070/buses/${_id}`)
       .then((res) => res.data)
       .then(() => history("/admin/adminHome"))
       .then(() => history("/admin/adminHome"));
@@ -18,12 +19,15 @@ const Bus = (props) => {
 
   return (
     <div className="card">
-      <h3>{VehicleNo}</h3>
-      <p>Driver ID : {DriverID}</p>
-      <h4>Conductor ID : {ConductorID}</h4>
-      <h4>Availability : {Availability}</h4>
-
-      <Button LinkComponent={Link} to={`/admin/bus/edit/${_id}`}>
+      {/*<img src={} alt={busNo} />*/}
+      <h5>Bus No : {busNo}</h5>
+      <p>Route No : {routeNo}</p>
+      <h6>From : {from}</h6>
+      <h6>To : {to}</h6>
+      <h6>Driver ID : {driverId}</h6>
+      <h6>Driver Name : {driverName}</h6>
+      <h6>{available}</h6>
+      <Button LinkComponent={Link} to={`/admin/bus/${_id}`}>
         Update
       </Button>
       <Button onClick={deleteHandler}>Delete</Button>
