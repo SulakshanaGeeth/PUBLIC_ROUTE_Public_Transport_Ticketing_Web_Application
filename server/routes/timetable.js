@@ -6,128 +6,113 @@ const TimeTable = require('./../models/timetable');
 router.post('/create', async (req, res) => {
     const table = new TimeTable({
         RouteID:req.body.RouteID,
+        Trip: req.body.Trip,
         Day:req.body.Day
     }).save()
     .then(() => res.json("New Time-Table created successfully.."))
     .catch((err) => res.json(err.message)); 
 });
 
+router.put('/cell/:Tid', async (req, res) => {
+    const obj = await TimeTable.findById(req.params.Tid);
+
+    if(req.body.day == "Monday") {
+        if(obj.Day.Monday.filter((ob) => ob._id == req.body.Cid).length == 1) {
+            obj.Day.Monday.filter((ob) => ob._id == req.body.Cid)[0].Time = req.body.Time;
+            obj.Day.Monday.filter((ob) => ob._id == req.body.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Tuesday") {
+        if(obj.Day.Tuesday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Tuesday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Tuesday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Wednesday") {
+        if(obj.Day.Wednesday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Wednesday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Wednesday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Thursday") {
+        if(obj.Day.Thursday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Thursday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Thursday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Friday") {
+        if(obj.Day.Friday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Friday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Friday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Saturday") {
+        if(obj.Day.Saturday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Saturday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Saturday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    } else if(req.params.day == "Sunday") {
+        if(obj.Day.Sunday.filter((ob) => ob._id == req.params.Cid).length == 1) {
+            obj.Day.Sunday.filter((ob) => ob._id == req.params.Cid)[0].Time = req.body.Time;
+            obj.Day.Sunday.filter((ob) => ob._id == req.params.Cid)[0].BusID = req.body.BusID;
+        }
+    }
+
+    await obj.save()
+    .then(() => res.json("Time-Table updated successfully.."))
+    .catch((err) => res.json(err.message)); 
+
+})
+
 router.put('/edit/:routeid', async (req, res) => {
     const obj = await TimeTable.findOne({RouteID:req.params.routeid});
     const day = req.body.Day;
     if(obj) {
         if(day == "Monday") {
-            if(obj.Day.Monday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Monday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Monday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Monday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            
+                obj.Day.Monday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Tuesday") {
-            if(obj.Day.Tuesday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Tuesday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Tuesday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Tuesday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Tuesday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Wednesday") {
-            if(obj.Day.Wednesday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Wednesday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Wednesday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Wednesday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Wednesday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Thursday") {
-            if(obj.Day.Thursday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Thursday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Thursday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Thursday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Thursday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Friday") {
-            if(obj.Day.Friday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Friday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Friday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Friday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Friday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Saturday") {
-            if(obj.Day.Saturday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Saturday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Saturday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Saturday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Saturday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } else if(day == "Sunday") {
-            if(obj.Day.Sunday.filter((ob) => ob.Round == req.body.Round).length == 1) {
-                obj.Day.Sunday.filter((ob) => ob.Round == req.body.Round)[0].Start = req.body.Start;
-                obj.Day.Sunday.filter((ob) => ob.Round == req.body.Round)[0].End = req.body.End;
-                obj.Day.Sunday.filter((ob) => ob.Round == req.body.Round)[0].BusID = req.body.BusID;
+            obj.Day.Sunday.push(req.body.Data);
     
                 await obj.save()
                 .then(() => res.json("Time-Table updated successfully.."))
                 .catch((err) => res.json(err.message)); 
-            } else {
-                obj.Day(day).push(req.body.data);
-    
-                await obj.save()
-                .then(() => res.json("Time-Table updated successfully.."))
-                .catch((err) => res.json(err.message)); 
-            }
+
         } 
         
     }
