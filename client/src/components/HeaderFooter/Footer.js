@@ -17,16 +17,18 @@ export default class Footer extends React.Component {
           }}
         >
           <div>
-            <img
-              src={IMG}
-              alt="Logo"
-              style={{
-                width: "450px",
-                height: "200px",
-                marginLeft: "600px",
-                marginTop: "-30px",
-              }}
-            />
+            <a href="/home">
+              <img
+                src={IMG}
+                alt="Logo"
+                style={{
+                  width: "450px",
+                  height: "200px",
+                  marginLeft: "600px",
+                  marginTop: "-30px",
+                }}
+              />
+            </a>
           </div>
         </Paper>
       </div>

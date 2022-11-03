@@ -17,7 +17,28 @@ const Home = () => {
   return (
     <div>
       <Header />
-
+      <ThemeProvider theme={theme}>
+        <Typography
+          variant="h1"
+          style={{
+            marginLeft: "350px",
+            fontFamily: "serif",
+            marginTop: "125px",
+          }}
+        >
+          Welcome to
+        </Typography>
+        <Typography
+          variant="h1"
+          style={{
+            marginLeft: "550px",
+            fontFamily: "serif",
+            marginBottom: "125px",
+          }}
+        >
+          PUBLIC ROUTE
+        </Typography>
+      </ThemeProvider>
       <Footer />
     </div>
   );
