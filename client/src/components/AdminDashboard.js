@@ -27,8 +27,10 @@ import CustomerHome from "./UserManagement/CustomerHome";
 import CustomerDetails from "./UserManagement/CustomerDetails";
 
 //Bus Management Imports
-import Buses from "./BusListManagement/Buses";
-import AddBus from "./BusListManagement/AddBus";
+import ProductDetail from "./Product/BusDetail";
+import AddBus from "./Product/AddBus";
+import Buses from "./Product/Buses";
+import BusDetail from "./Product/BusDetail";
 
 const drawerWidth = 240;
 
@@ -98,7 +100,7 @@ export default function AdminDashboard() {
               <ListItemButton
                 onClick={() => {
                   // setpageNo("2");
-                  history(`/admin/BusManagement`);
+                  history(`/admin/buses`);
                 }}
               >
                 <ListItemIcon>
@@ -191,7 +193,7 @@ export default function AdminDashboard() {
       {/* Bus Management */}
       {/*  */}
       {/*  */}
-      {window.location.pathname === `/admin/BusManagement` && (
+      {window.location.pathname === `/admin/buses` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
           <div>
@@ -199,11 +201,19 @@ export default function AdminDashboard() {
           </div>
         </Box>
       )}
-      {window.location.pathname === `/admin/addBus` && (
+      {window.location.pathname === `/admin/addBus/` && (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
           <div>
             <AddBus />
+          </div>
+        </Box>
+      )}
+      {window.location.pathname === `/admin/bus/${useParams().id}` && (
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <div>
+            <BusDetail/>
           </div>
         </Box>
       )}

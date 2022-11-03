@@ -29,6 +29,9 @@ app.use(express.json()); //parse various different custom JSON types as JSO
 // middleware
 app.use(express.json());
 
+const router = require("./routes/bus.route");
+app.use("/buses", router); // localhost:8070/products
+
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number ${PORT}`);
 });
@@ -37,6 +40,6 @@ app.use("/api/auth", require("./routes/auth"));
 
 app.use("/account", require("./routes/account"));
 app.use("/payment", require("./routes/payment"));
-app.use("/bus", require("./routes/bus"));
+
 app.use("/timetable", require("./routes/timetable"));
 app.use("/route", require("./routes/route"));
