@@ -8,9 +8,15 @@ import Home from "./components/Home";
 //User Management Imports
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
+import RouteDetails from "./components/UserManagement/RouteDetails";
+
 // import EditProfile from "./components/UserManagement/EditProfile";
 import UserProfile from "./components/UserManagement/UserProfile";
 import AdminDashboard from "./components/AdminDashboard";
+
+//import payment
+import Payment from "./components/Account/Payment";
+import AddPayment from "./components/Account/Addpayment";
 
 function App() {
   return (
@@ -115,6 +121,40 @@ function App() {
           element={
             <PrivateRoute>
               <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/RouteDetails"
+          element={
+            <PrivateRoute>
+              <RouteDetails />
+            </PrivateRoute>
+          }
+        />
+
+        {/*  */}
+        {/*  */}
+        {/* Payment Management Routes */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <Payment />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/AddPayment"
+          element={
+            <PrivateRoute>
+              <AddPayment />
             </PrivateRoute>
           }
         />

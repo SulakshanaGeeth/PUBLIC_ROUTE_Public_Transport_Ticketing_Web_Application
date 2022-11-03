@@ -62,7 +62,7 @@ export default function Header() {
 
         <Tabs
           aria-label="nav tabs example"
-          sx={{ marginTop: "-15px", marginLeft: "520px" }}
+          sx={{ marginTop: "-15px", marginLeft: "380px" }}
         >
           <Tab
             label="Home"
@@ -82,7 +82,17 @@ export default function Header() {
 
           <Tab
             label="Routes"
-            href="/Routes"
+            href="/RouteDetails"
+            sx={{ color: "white", marginLeft: "25px" }}
+          />
+          <Tab
+            label="Payment"
+            href="/payment"
+            sx={{ color: "white", marginLeft: "25px" }}
+          />
+          <Tab
+            label="AddPayment"
+            href="/AddPayment"
             sx={{ color: "white", marginLeft: "25px" }}
           />
         </Tabs>
